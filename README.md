@@ -69,6 +69,70 @@ int main()
 
 \\bai 7
 
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void nhap(int a[],int m){
+      for (int i=0;i<m;i++)
+           scanf("%d",&a[i]);
+
+}
+
+void xuat(int a[],int m){
+      for(int i=0;i<m;i++)
+        printf("%4d ",a[i]);
+
+}
+
+void soduong(int a[],int b[],int m,int *h){
+
+   for (int i=0; i<m;i++){
+    if(a[i]>=0){
+       b[*h]=a[i];
+        (*h)++;
+    }
+   }
+}
+
+void soam(int a[],int c[],int m,int *g){
+
+
+   for (int i=0; i<m;i++){
+    if(a[i]<0){
+        c[*g]=a[i];
+        (*g)++;
+    }
+   }
+
+}
+
+int main(){
+    int a[50];
+    int b[50];
+    int c[50];
+    int n;
+    int l=0,k=0;
+    scanf("%d",&n);
+    nhap(a,n);
+    xuat(a,n);
+    soduong(a,b,n,&l);
+    printf("\n");
+    xuat(b,l);
+    soam(a,c,n,&k);
+    printf("\n");
+    xuat(c,k);
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
