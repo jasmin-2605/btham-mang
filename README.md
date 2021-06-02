@@ -296,6 +296,72 @@ int main(){
 //bai 11 
 
 
+#include <stdio.h>
+
+void nhap(int a[100][100], int *x, int *y)
+{
+    printf("Nhap so hang, so cot: ");
+    scanf("%d%d", x, y);
+    for(int i=0; i<*x; i++)
+    {
+        for(int j=0; j<*y; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+}
+
+void xuat(int a[100][100], int x, int y)
+{
+    for(int i=0; i<x; i++)
+    {
+        for(int j=0; j<y; j++)
+        {
+            printf("%5d ", a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void nhanMT(int a[100][100], int b[100][100], int c[100][100], int x, int y, int z)
+{
+    for(int i=0; i<x; i++)
+    {
+        for(int j=0; j<z; j++)
+        {
+            for(int k=0; k<y; k++)
+            {
+                c[i][j]+=a[i][k]*b[k][j];
+            }
+        }
+    }
+}
+
+int main()
+{
+    int a[100][100], b[100][100], c[100][100], ma, na, mb, nb;
+    printf("Ma Tran A: \n");
+    nhap(a, &ma, &na);
+    printf("Ma Tran B: \n");
+    nhap(b, &mb, &nb);
+    if(na!=mb)
+    {
+        printf("Ma tran khong kha tich!");
+    }
+    else
+    {
+        nhanMT(a, b, c, ma, na, nb);
+        printf("\nMa tran A%dx%d:\n",ma,na);
+        xuat(a, ma, na);
+        printf("\nMa tran B%dx%d:\n",mb,nb);
+        xuat(b, mb, nb);
+        printf("\n");
+        printf("Ma tran C%dx%d:\n",ma,nb);
+        xuat(c, ma, nb);
+    }
+
+    return 0;
+}
 
 
 
